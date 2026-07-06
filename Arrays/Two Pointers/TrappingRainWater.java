@@ -59,3 +59,29 @@ class Solution {
         return sum;
     }
 }
+
+2. Optimal Solution
+
+class Solution {
+    public int trap(int[] height) {
+        int start = 0, end = height.length - 1;
+        int left = 0, right = 0, sum = 0;
+
+        while (start < end) {
+
+            left = Math.max(left, height[start]);
+            right = Math.max(right, height[end]);
+
+            if (left < right) {
+                sum += left - height[start];
+                start++;
+            } 
+            else {
+                sum += right - height[end];
+                end--;
+            }
+        }
+
+        return sum;
+    }
+}
