@@ -1,0 +1,19 @@
+class Solution {
+    public int[] leftRightDifference(int[] nums) {
+        
+        int[] arr = new int[nums.length];
+        int lsum = 0, rsum = 0;
+
+        for(int num : nums){
+            rsum += num;
+        }
+
+        for(int i = 0; i < nums.length; i++){
+            rsum -= nums[i];
+            arr[i] = Math.abs(lsum - rsum);
+            lsum += nums[i];
+        }
+
+        return arr;
+    }
+}
